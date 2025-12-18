@@ -1,16 +1,146 @@
-# React + Vite
+# 🎥 Video Call Rooms App (React + ZEGOCLOUD)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple and modern **video calling web application** built with **React, Tailwind CSS, React Router**, and **ZEGOCLOUD UIKit**. Users can join a video call room by entering a Room ID, and instantly connect with others in the same room.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Features
 
-## React Compiler
+* 🔗 Join video calls using a **Room ID**
+* ⚡ Real-time video & audio calling (Group Call)
+* 🎨 Beautiful and responsive UI using **Tailwind CSS**
+* 🧭 Client-side routing with **React Router v6**
+* 💤 Code splitting using **React.lazy**
+* 📞 Powered by **ZEGOCLOUD Prebuilt UIKit**
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## 🛠️ Tech Stack
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+* **Frontend:** React (Vite)
+* **Styling:** Tailwind CSS
+* **Routing:** React Router DOM
+* **Video SDK:** ZEGOCLOUD UIKit Prebuilt
+
+---
+
+## 📁 Project Structure
+
+```
+src/
+│── pages/
+│   ├── Home.jsx        # Join room UI
+│   └── Room.jsx        # Video call room
+│
+│── App.jsx             # App routes
+│── main.jsx            # App entry point
+```
+
+---
+
+## 🧩 How It Works
+
+### 🏠 Home Page
+
+* User enters a **Room ID**
+* On submit, user is navigated to:
+
+  ```
+  /room/:roomId
+  ```
+
+### 🎥 Room Page
+
+* `roomId` is extracted using `useParams()`
+* A **ZEGOCLOUD Kit Token** is generated
+* User joins the room using `ZegoUIKitPrebuilt.joinRoom()`
+* Multiple users with the same Room ID can join the same call
+
+---
+
+## 🔑 Environment & Security
+
+⚠️ **Important:**
+
+This project currently uses:
+
+```js
+appID
+serverSecret
+```
+
+directly in the frontend **for development/testing purposes only**.
+
+❌ Do **NOT** expose `serverSecret` in production.
+
+✅ Recommended for production:
+
+* Generate Kit Token on a **secure backend server**
+* Send token to frontend via API
+
+---
+
+## ▶️ Getting Started
+
+### 1️⃣ Clone the Repository
+
+```bash
+git clone https://github.com/your-username/your-repo-name.git
+cd your-repo-name
+```
+
+### 2️⃣ Install Dependencies
+
+```bash
+npm install
+```
+
+### 3️⃣ Start Development Server
+
+```bash
+npm run dev
+```
+
+Open: `http://localhost:5173`
+
+---
+
+## 📦 Dependencies
+
+```json
+react
+react-router-dom
+tailwindcss
+@zegocloud/zego-uikit-prebuilt
+```
+
+<!-- --- -->
+
+<!-- ## 🌟 Future Improvements
+
+* 🔐 Secure token generation via backend
+* 👤 Username input before joining
+* 🔗 Copy room invite link button
+* 🌙 Dark mode
+* 🎭 One-on-one call mode -->
+
+<!-- ---
+
+## 📄 License -->
+
+This project is for learning and demonstration purposes.
+
+---
+
+## 🙌 Acknowledgements
+
+* [ZEGOCLOUD](https://www.zegocloud.com/)
+* React & Tailwind CSS community
+
+---
+
+### 💡 Author
+
+**Yash**
+
+Happy Coding 🚀
